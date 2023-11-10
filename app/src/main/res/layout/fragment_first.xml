@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/mainbackground"
+    android:gravity="center">
+
+
+
+    <ImageView
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:id="@+id/usernameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Benutzername"
+        android:inputType="text"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_background"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Passwort"
+        android:inputType="textPassword"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edittext_background"
+        android:padding="10dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Anmelden"
+        android:layout_marginTop="16dp"
+        android:id="@+id/loginButton"/>
+
+</LinearLayout>
