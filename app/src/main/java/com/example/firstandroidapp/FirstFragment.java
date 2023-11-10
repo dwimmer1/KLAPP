@@ -60,11 +60,7 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        try {
-            results =  dbConnection();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+
 
         binding.loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
