@@ -1,4 +1,5 @@
 <?php
+//DATEN FÜR WIMER HOME OFFICE
 $servername = "localhost";
 $port = 5306;
 $username = "spring";

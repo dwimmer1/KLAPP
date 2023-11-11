@@ -11,6 +11,15 @@
     android:gravity="center">
 
 
+    <EditText
+        android:id="@+id/testView"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_background"
+        android:hint="XAMPP STARTEN FÜR LOGIN"
+        android:inputType="text"
+        android:padding="10dp" />
 
     <ImageView
         android:layout_width="96dp"
@@ -22,11 +31,11 @@
         android:id="@+id/usernameEditText"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:hint="Benutzername"
-        android:inputType="text"
         android:layout_marginTop="16dp"
         android:background="@drawable/edittext_background"
-        android:padding="10dp"/>
+        android:hint="Benutzername"
+        android:inputType="text"
+        android:padding="10dp" />
 
     <EditText
         android:id="@+id/passwordEditText"
