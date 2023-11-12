@@ -23,6 +23,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.fragment.app.Fragment;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -81,6 +83,9 @@ public class FirstFragment extends Fragment {
 
                     NavHostFragment.findNavController(FirstFragment.this)
                             .navigate(R.id.action_FirstFragment_to_SecondFragment);
+                } else {
+                    Toast.makeText(getContext(), "Ungültige Eingabe", Toast.LENGTH_SHORT).show();
+                    Log.d("Wrong Password/Username", "Wrong Credentials");
                 }
 
 
