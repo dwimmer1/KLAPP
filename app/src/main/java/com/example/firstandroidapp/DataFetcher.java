@@ -28,7 +28,7 @@ public class DataFetcher extends AsyncTask<String, Void, List<UserData>> {
     protected List<UserData> doInBackground(String... strings) {
         List<UserData> userDataList = new ArrayList<>();
         try {
-            String urlStr = strings[0]; // Übergib die URL als Parameter
+            String urlStr = strings[0]; // Übergib die URL als Parameter ??????
             URL url = new URL(urlStr);
             InputStream inputStream = url.openStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
@@ -49,10 +49,16 @@ public class DataFetcher extends AsyncTask<String, Void, List<UserData>> {
                     JSONObject jsonObjekt = jsonArray.getJSONObject(i);
                     String userName = jsonObjekt.getString("username");
                     String password = jsonObjekt.getString("password");
-                    // Hier weitere Daten aus der JSON holen
+                    String email = jsonObjekt.getString("email");
+                    String userId = jsonObjekt.getString("userid");
+                    String phoneNumber = jsonObjekt.getString("phonenumber");
+                    String dateAccCreated = jsonObjekt.getString("dateaccountcreated");
+                    String userRole = jsonObjekt.getString("userrole");
+                  //  String pfPath = jsonObjekt.getString("profilepicture");
+
 
                     // Erstelle ein UserData-Objekt und füge es der Liste hinzu
-                    UserData userData = new UserData(userName, password);
+                    UserData userData = new UserData(userName,password,email,userId,phoneNumber,dateAccCreated,userRole);
                     userDataList.add(userData);
                 }
             }

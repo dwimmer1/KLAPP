@@ -13,7 +13,9 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.example.firstandroidapp.databinding.FragmentThirdBinding;
 import com.example.firstandroidapp.databinding.FragmentUserdataBinding;
 
-public class UserDetailsFragment extends Fragment {
+import java.util.List;
+
+public class UserDetailsFragment extends Fragment implements DataFetcher.OnDataFetchedListener {
 
     private FragmentUserdataBinding binding;
 
@@ -25,25 +27,37 @@ public class UserDetailsFragment extends Fragment {
     ) {
 
         binding = FragmentUserdataBinding.inflate(inflater, container, false);
-        // Hier sollten Daten aus der Datenbank abgerufen und in die TextViews eingefügt werden
-        String username = "BeispielUsername";
-        String email = "beispiel@email.com";
-        String password = "Passwort123";
-
 
         // Setze die abgerufenen Daten in die TextViews
+        /*
         binding.textViewUsername.setText("Username: " + username);
         binding.textViewEmail.setText("Email: " + email);
         binding.textViewPassword.setText("Password: " + password);
         binding.textViewUserId.setText("UserID: " + userID);
-
+         */
+        DataFetcher dataFetcher = new DataFetcher(this);
+        dataFetcher.execute("http://192.168.56.1/Klapp/getData.php");
 
         return binding.getRoot();
 
     }
 
+    @Override
+    public void onDataFetched(List<UserData> userDataList) {
+        // TODO gehört noch gemacht das der benutzer welcher eingeloggt ist angezeigt wird
+
+        if (!userDataList.isEmpty()) {
+            UserData firstUser = userDataList.get(0); // Beispiel: Nehme den ersten Benutzer
+            binding.textViewUsername.setText("Username: " + firstUser.getUsername());
+            binding.textViewEmail.setText("Email: " + firstUser.getEmail());
+            binding.textViewPassword.setText("Password: " + firstUser.getPassword());
+            // Setze hier die weiteren TextViews für andere Benutzerdaten
+        }
+    }
+
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        /*
         textViewUsername = view.findViewById(R.id.);
         textViewEmail = view.findViewById(R.id.textViewEmail);
         //tex = view.findViewById(R.id.textViewPassword);
@@ -53,15 +67,9 @@ public class UserDetailsFragment extends Fragment {
         textViewUserRole = view.findViewById(R.id.textViewUserRole);
         loadUserDataFromDatabase();
 
+        */
 
-        binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(UserDetailsFragment.this)
-                        .navigate(R.id.action_ThirdFragment_to_SecondFragment);
-            }
-        });
-        binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
+        binding.BtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(UserDetailsFragment.this)
@@ -71,29 +79,12 @@ public class UserDetailsFragment extends Fragment {
     }
 
 
-    // Hier könntest du die Methoden onCreate und onCreateView implementieren
-
-    // Methode zur Anzeige der Benutzerdaten basierend auf Datenbankabfrage
-    private void loadUserDataFromDatabase() {
-        // Code zum Abrufen der Benutzerdaten aus der Datenbank
-
-        // Angenommen, die Daten werden in userObjekt gespeichert
-        // (ersetze dies mit deiner tatsächlichen Logik zum Abrufen von Benutzerdaten)
-        String username = userObjekt.getUsername();
-        String email = userObjekt.getEmail();
-        // Weitere Benutzerdaten aus userObjekt abrufen
-
-        // Setze die abgerufenen Daten in die TextViews oder UI-Elemente
-        textViewUsername.setText("Username: " + username);
-        textViewEmail.setText("Email: " + email);
-        // Weitere TextViews mit anderen Benutzerdaten füllen
-    }
-
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
     }
+
 
 }
