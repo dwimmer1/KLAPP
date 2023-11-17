@@ -40,7 +40,7 @@ import java.util.List;
 
 public class FirstFragment extends Fragment {
 
-    private FragmentFirstBinding binding;
+    private FragmentFirstBinding binding; // binding muss immer so heißen wie xml in CamelCase und Binding am schluss
     private TextView datenAnzeige;
     ResultSet results = null;
 
