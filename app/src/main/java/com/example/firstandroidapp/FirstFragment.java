@@ -44,8 +44,8 @@ public class FirstFragment extends Fragment {
     private TextView datenAnzeige;
     ResultSet results = null;
 
-    String userName = "";
-    String password = "";
+    List<String> userNames = new ArrayList<>();
+    List<String> passwords = new ArrayList<>();
 
 
     @Override
@@ -76,10 +76,15 @@ public class FirstFragment extends Fragment {
         binding.loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                String enteredUserName = binding.usernameEditText.getText().toString();
+                String enteredPassword = binding.passwordEditText.getText().toString();
+
                 System.out.printf("Clicked");
                 Log.d("bindings",binding.usernameEditText.getText().toString());
-                if (binding.usernameEditText.getText().toString().equals(userName) && binding.passwordEditText.getText().toString().equals(password)){
-                    Log.d("LoginIdentifier", "Succes");
+                // Prüfe, ob eingegebener Benutzername und Passwort in der Liste der JSON-Daten vorhanden sind
+                if (userNames.contains(enteredUserName) && passwords.contains(enteredPassword)) {
+                    Log.d("LoginIdentifier", "Success");
 
                     NavHostFragment.findNavController(FirstFragment.this)
                             .navigate(R.id.action_FirstFragment_to_SecondFragment);
@@ -135,23 +140,14 @@ public class FirstFragment extends Fragment {
         private void loggeDaten(String jsonDaten) {
             try {
                 JSONArray jsonArray = new JSONArray(jsonDaten);
-                List<String> datenListe = new ArrayList<>();
-
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObjekt = jsonArray.getJSONObject(i);
-                    // ONLY RIGHT DATA FIELDS
-                     userName = jsonObjekt.getString("name");
-                     password = jsonObjekt.getString("password");
+                    String userName = jsonObjekt.getString("username");
+                    String password = jsonObjekt.getString("password");
 
-                    String datenElement = "User: " + userName + ", password: " + password;
-                    datenListe.add(datenElement);
-                }
-
-                // Gib die Daten in der Konsole aus
-                for (String daten : datenListe) {
-                    Log.d("DatenAbrufenTask", daten);
-                    System.out.printf(daten);
-                    System.out.printf("test");
+                    // Speichere Benutzernamen und Passwörter in den Listen
+                    userNames.add(userName);
+                    passwords.add(password);
                 }
 
             } catch (JSONException e) {
