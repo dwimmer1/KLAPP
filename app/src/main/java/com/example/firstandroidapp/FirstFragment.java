@@ -76,8 +76,8 @@ public class FirstFragment extends Fragment {
         binding.loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // System.out.printf();
-
+                System.out.printf("Clicked");
+                Log.d("bindings",binding.usernameEditText.getText().toString());
                 if (binding.usernameEditText.getText().toString().equals(userName) && binding.passwordEditText.getText().toString().equals(password)){
                     Log.d("LoginIdentifier", "Succes");
 

@@ -1,10 +1,10 @@
 <?php
-//DATEN FÜR WIMER HOME OFFICE
-$servername = "localhost";
-$port = 5306;
-$username = "spring";
-$password = "spring";
-$dbname = "spring_test";
+//Dy
+$servername = "xserv";
+$port = 3306;
+$username = "klapp";
+$password = "superklapp";
+$dbname = "klapp";
 
 // Verbindung herstellen
 $conn = new mysqli($servername, $username, $password, $dbname, $port);

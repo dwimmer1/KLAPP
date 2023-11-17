@@ -1,3 +1,12 @@
+
+//DATEN FÜR WIMER HOME OFFICE
+$servername = "localhost";
+$port = 5306;
+$username = "spring";
+$password = "spring";
+$dbname = "spring_test";
+
+
 package com.example.firstandroidapp;
 
 import android.os.Bundle;
