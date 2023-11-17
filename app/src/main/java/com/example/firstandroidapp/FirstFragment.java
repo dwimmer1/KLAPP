@@ -79,14 +79,23 @@ public class FirstFragment extends Fragment {
                 if (userNames.contains(enteredUserName) && passwords.contains(enteredPassword)) {
                     Log.d("LoginIdentifier", "Success");
 
+                    Toast.makeText(getContext(), "Erfolgreich Eingeloggt", Toast.LENGTH_LONG).show();
                     NavHostFragment.findNavController(FirstFragment.this)
                             .navigate(R.id.action_FirstFragment_to_SecondFragment);
                 } else {
-                    Toast.makeText(getContext(), "Ungültige Eingabe", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Ungültige Eingabe", Toast.LENGTH_LONG).show();
                     Log.d("Wrong Password/Username", "Wrong Credentials");
                 }
 
 
+            }
+        });
+
+        binding.tempSwitchBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(FirstFragment.this)
+                        .navigate(R.id.action_FirstFragment_to_UserDetailFragment);
             }
         });
     }

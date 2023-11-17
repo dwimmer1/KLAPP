@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/material_dynamic_neutral40"
+    android:background="@drawable/mainbackground"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp">
@@ -21,49 +21,57 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Username: "
-        android:textSize="18sp" />
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textViewEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Email: "
-        android:textSize="18sp" />
+        android:textColor="@color/white"
+
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textViewPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Password: "
-        android:textSize="18sp" />
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textViewUserId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="User ID: "
-        android:textSize="18sp" />
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textViewPhoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Phone Number: "
-        android:textSize="18sp" />
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textViewDateAccountCreated"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Date Account Created: "
-        android:textSize="18sp" />
+        android:text="Account Created: "
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textViewUserRole"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="User Role: "
-        android:textSize="18sp" />
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/BtnBack"

@@ -11,6 +11,12 @@
     android:gravity="center">
 
 
+    <Button
+        android:id="@+id/tempSwitchBTN"
+        android:layout_width="181dp"
+        android:layout_height="wrap_content"
+        android:text="DONT TOUCH" />
+
     <EditText
         android:id="@+id/testView"
         android:layout_width="match_parent"

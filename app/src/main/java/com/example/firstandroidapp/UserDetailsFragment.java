@@ -28,13 +28,6 @@ public class UserDetailsFragment extends Fragment implements DataFetcher.OnDataF
 
         binding = FragmentUserdataBinding.inflate(inflater, container, false);
 
-        // Setze die abgerufenen Daten in die TextViews
-        /*
-        binding.textViewUsername.setText("Username: " + username);
-        binding.textViewEmail.setText("Email: " + email);
-        binding.textViewPassword.setText("Password: " + password);
-        binding.textViewUserId.setText("UserID: " + userID);
-         */
         DataFetcher dataFetcher = new DataFetcher(this);
         dataFetcher.execute("http://192.168.56.1/Klapp/getData.php");
 
@@ -51,7 +44,11 @@ public class UserDetailsFragment extends Fragment implements DataFetcher.OnDataF
             binding.textViewUsername.setText("Username: " + firstUser.getUsername());
             binding.textViewEmail.setText("Email: " + firstUser.getEmail());
             binding.textViewPassword.setText("Password: " + firstUser.getPassword());
-            // Setze hier die weiteren TextViews für andere Benutzerdaten
+            binding.textViewUserId.setText("UserId: " + firstUser.getUserid());
+            binding.textViewPhoneNumber.setText("Phone Number: " + firstUser.getPhoneNumber());
+            binding.textViewDateAccountCreated.setText("Account Created: " + firstUser.getDateAccountCreated());
+            binding.textViewUserRole.setText("UserRole: " + firstUser.getUserRole());
+
         }
     }
 
