@@ -53,11 +53,6 @@ public class FirstFragment extends Fragment {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-      //  View view = inflater.inflate(R.layout.fragment_first, container, false);
-
-        // Beispielaufruf der AsyncTask
-
-
         binding = FragmentFirstBinding.inflate(inflater, container, false);
 
         DatenAbrufenTask datenAbrufenTask = new DatenAbrufenTask();
@@ -80,8 +75,6 @@ public class FirstFragment extends Fragment {
                 String enteredUserName = binding.usernameEditText.getText().toString();
                 String enteredPassword = binding.passwordEditText.getText().toString();
 
-                System.out.printf("Clicked");
-                Log.d("bindings",binding.usernameEditText.getText().toString());
                 // Prüfe, ob eingegebener Benutzername und Passwort in der Liste der JSON-Daten vorhanden sind
                 if (userNames.contains(enteredUserName) && passwords.contains(enteredPassword)) {
                     Log.d("LoginIdentifier", "Success");
