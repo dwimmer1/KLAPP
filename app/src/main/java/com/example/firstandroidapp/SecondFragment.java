@@ -34,7 +34,7 @@ public class SecondFragment extends Fragment {
                         loadFragment(new QRFragment());
                         return true;
                     case R.id.action_account:
-                        loadFragment(new AccountFragment());
+                        loadFragment(new UserDetailsFragment());
                         return true;
                     case R.id.action_settings:
                         loadFragment(new SettingsFragment());
