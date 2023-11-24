@@ -101,7 +101,8 @@ public class FirstFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_UserDetailFragment);
+                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+                //.navigate(R.id.action_FirstFragment_to_UserDetailFragment);
             }
         });
     }
