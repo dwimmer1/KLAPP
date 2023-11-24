@@ -6,6 +6,14 @@
     app:startDestination="@id/FirstFragment">
 
     <fragment
+        android:id="@+id/SupportFragment"
+        android:name="com.example.firstandroidapp.SupportFragment"
+        android:label="@string/support_fragment_label">
+        <action
+            android:id="@+id/action_SupportFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/FirstFragment"
         android:name="com.example.firstandroidapp.FirstFragment"
         android:label="@string/first_fragment_label"
@@ -17,6 +25,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_UserDetailFragment"
             app:destination="@id/UserDetailFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_SupportFragment"
+            app:destination="@id/SupportFragment" />
     </fragment>
     <fragment
         android:id="@+id/UserDetailFragment"

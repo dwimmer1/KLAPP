@@ -66,6 +66,12 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        binding.supportBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Support Emai Action Button
+            }
+        });
 
 
         binding.loginButton.setOnClickListener(new View.OnClickListener() {
