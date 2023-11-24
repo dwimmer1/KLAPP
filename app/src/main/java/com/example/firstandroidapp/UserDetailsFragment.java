@@ -40,7 +40,7 @@ public class UserDetailsFragment extends Fragment implements DataFetcher.OnDataF
         // TODO gehört noch gemacht das der benutzer welcher eingeloggt ist angezeigt wird
 
         if (!userDataList.isEmpty()) {
-            UserData firstUser = userDataList.get(0); // Beispiel: Nehme den ersten Benutzer
+            UserData firstUser = userDataList.get(1); // Beispiel: Nehme den ersten Benutzer
             binding.textViewUsername.setText("Username: " + firstUser.getUsername());
             binding.textViewEmail.setText("Email: " + firstUser.getEmail());
             binding.textViewPassword.setText("Password: " + firstUser.getPassword());
