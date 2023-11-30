@@ -42,6 +42,18 @@
             app:destination="@id/FirstFragment" />
     </fragment>
     <fragment
+        android:id="@+id/KletterSteig"
+        android:name="com.example.firstandroidapp.KletterSteigFragment"
+        android:label="@string/klettersteig_fragment_label">
+
+        <action
+            android:id="@+id/action_ThirdFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_ThirdFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/SecondFragment"
         android:name="com.example.firstandroidapp.SecondFragment"
         android:label="@string/second_fragment_label"
