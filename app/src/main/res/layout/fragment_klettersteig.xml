@@ -9,16 +9,85 @@
     android:padding="16dp">
 
 
-    <ImageView
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_gravity="center"
-        android:src="@drawable/ic_launcher_foreground" />
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:layout_marginTop="10dp
+"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Username" />
+
+    <EditText
+        android:id="@+id/editTextDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+     
+        android:layout_below="@id/editTextUsername"
+        android:hint="Description" />
+
+    <EditText
+        android:id="@+id/editTextRisetime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@id/editTextDescription"
+        android:hint="Risetime" />
+
+    <EditText
+        android:id="@+id/editTextDescenttime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextRisetime"
+        android:hint="Descenttime" />
+
+    <EditText
+        android:id="@+id/editTextStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextDescenttime"
+        android:hint="Status" />
+
+    <EditText
+        android:id="@+id/editTextStartingPoint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextStatus"
+        android:hint="Starting Point" />
+
+    <EditText
+        android:id="@+id/editTextFederalState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextStartingPoint"
+        android:hint="Federal State" />
+
+    <EditText
+        android:id="@+id/editTextDifficulty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextFederalState"
+        android:hint="Difficulty" />
+
+    <EditText
+        android:id="@+id/editTextDateCreated"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextDifficulty"
+        android:hint="Date Created" />
+
+    <Button
+        android:id="@+id/buttonSaveData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="38dp"
+        android:layout_below="@id/editTextDateCreated"
+        android:text="Daten speichern" />
 
     <Button
         android:id="@+id/BtnBack"
         android:layout_width="match_parent"
+        android:textSize="18dp"
         android:layout_height="wrap_content"
-        android:text="BackToMyCreator Yuhh" />
+        android:text="BackToBack" />
 
 </LinearLayout>
