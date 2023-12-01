@@ -9,15 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.firstandroidapp.databinding.FragmentKletterSteigBinding;
-import com.example.firstandroidapp.databinding.FragmentUserdataBinding;
+
+import com.example.firstandroidapp.databinding.FragmentKlettersteigBinding;
 
 import java.util.List;
 
 //Creating klettersetig
-public class KletterSteigFragment extends Fragment implements DataFetcher.OnDataFetchedListener {
+public class KletterSteigFragment extends Fragment implements DataFetcherKletterSteig.OnDataFetchedListener {
 
-    private FragmentKletterSteigBinding binding;
+    private FragmentKlettersteigBinding binding;
 
 
     @Override
@@ -26,22 +26,15 @@ public class KletterSteigFragment extends Fragment implements DataFetcher.OnData
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentKletterSteigBinding.inflate(inflater, container, false);
+        binding = FragmentKlettersteigBinding.inflate(inflater, container, false);
 
-        DataFetcher dataFetcher = new DataFetcher(this);
-        dataFetcher.execute("http://192.168.56.1/Klapp/getData.php");
+        DataFetcherKletterSteig dataFetcherKlapp = new DataFetcherKletterSteig(this);
+        dataFetcherKlapp.execute("http://192.168.56.1/Klapp/getDataKlapp.php");
 
         return binding.getRoot();
 
     }
 
-    @Override
-    public void onDataFetched(List<UserData> userDataList) {
-        // TODO gehört noch gemacht das der benutzer welcher eingeloggt ist angezeigt wird
-
-
-
-    }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -75,4 +68,22 @@ public class KletterSteigFragment extends Fragment implements DataFetcher.OnData
     }
 
 
+    @Override
+    public void onDataFetched(List<KlappData> klappDataList) {
+        // TODO gehört noch gemacht das der benutzer welcher eingeloggt ist angezeigt wird
+/*
+        if (!userDataList.isEmpty()) {
+            UserData firstUser = userDataList.get(1); // Beispiel: Nehme den ersten Benutzer
+            binding.textViewUsername.setText("Username: " + firstUser.getUsername());
+            binding.textViewEmail.setText("Email: " + firstUser.getEmail());
+            binding.textViewPassword.setText("Password: " + firstUser.getPassword());
+            binding.textViewUserId.setText("UserId: " + firstUser.getUserid());
+            binding.textViewPhoneNumber.setText("Phone Number: " + firstUser.getPhoneNumber());
+            binding.textViewDateAccountCreated.setText("Account Created: " + firstUser.getDateAccountCreated());
+            binding.textViewUserRole.setText("UserRole: " + firstUser.getUserRole());
+
+        }
+
+ */
+    }
 }

@@ -12,6 +12,12 @@
 
 
     <Button
+        android:id="@+id/tempSwitchBTN2"
+        android:layout_width="346dp"
+        android:layout_height="wrap_content"
+        android:text="Create Klettersteig" />
+
+    <Button
         android:id="@+id/tempSwitchBTN"
         android:layout_width="181dp"
         android:layout_height="wrap_content"
