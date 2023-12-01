@@ -7,11 +7,11 @@ $password = "superklapp";
 $dbname = "klapp";
 // Daten aus der Anfrage verarbeiten und in die Datenbank einfügen
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
 
 // Daten aus der POST-Anfrage verarbeiten und in die Datenbank einfügen
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
+    $name = $_POST["name"];
     $description = $_POST["description"];
     $risetime = $_POST["risetime"];
     $descenttime = $_POST["descenttime"];
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $datecreated = $_POST["datecreated"];
 
     $sql = "INSERT INTO Klettersteig (name, description, risetime, descenttime, status, startingpoint, federalstate, difficulty, datecreated)
-            VALUES ('$username', '$description', '$risetime', '$descenttime', '$status', '$startingpoint', '$federalstate', '$difficulty', '$datecreated')";
+            VALUES ('$name', '$description', '$risetime', '$descenttime', '$status', '$startingpoint', '$federalstate', '$difficulty', '$datecreated')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Daten erfolgreich eingefügt";

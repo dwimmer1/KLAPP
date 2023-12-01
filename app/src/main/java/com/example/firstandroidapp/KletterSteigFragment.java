@@ -31,7 +31,7 @@ public class KletterSteigFragment extends Fragment implements DataFetcherKletter
     private class SaveDataAsyncTask extends AsyncTask<String, Void, Void> {
 
         protected Void doInBackground(String... params) {
-            String username = params[0];
+            String name = params[0];
             String description = params[1];
             String risetime = params[2];
             String descenttime = params[3];
@@ -51,7 +51,7 @@ public class KletterSteigFragment extends Fragment implements DataFetcherKletter
                 OutputStream outputStream = urlConnection.getOutputStream();
                 BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
 
-                String postData = "username=" + URLEncoder.encode(username, "UTF-8") +
+                String postData = "name=" + URLEncoder.encode(name, "UTF-8") +
                         "&description=" + URLEncoder.encode(description, "UTF-8") +
                         "&risetime=" + URLEncoder.encode(risetime, "UTF-8") +
                         "&descenttime=" + URLEncoder.encode(descenttime, "UTF-8") +
