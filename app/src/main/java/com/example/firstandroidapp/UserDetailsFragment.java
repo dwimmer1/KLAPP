@@ -48,6 +48,8 @@ public class UserDetailsFragment extends Fragment implements DataFetcher.OnDataF
             binding.textViewPhoneNumber.setText("Phone Number: " + firstUser.getPhoneNumber());
             binding.textViewDateAccountCreated.setText("Account Created: " + firstUser.getDateAccountCreated());
             binding.textViewUserRole.setText("UserRole: " + firstUser.getUserRole());
+            //binding.textViewUserRole.setText("RCode: " + firstUser.getQRCode())
+            // ;
 
         }
     }

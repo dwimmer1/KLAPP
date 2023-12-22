@@ -14,6 +14,7 @@ public class SecondFragment extends Fragment {
 
     public SecondFragment() {
         // Erforderlicher leerer öffentlicher Konstruktor
+
     }
 
     @Override
