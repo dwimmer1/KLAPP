@@ -65,7 +65,7 @@ public class UserDetailsFragment extends Fragment implements DataFetcher.OnDataF
         textViewDateAccountCreated = view.findViewById(R.id.textViewDateAccountCreated);
         textViewUserRole = view.findViewById(R.id.textViewUserRole);
         loadUserDataFromDatabase();
-
+        //Emik
         */
 
         binding.BtnBack.setOnClickListener(new View.OnClickListener() {
