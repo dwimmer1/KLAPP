@@ -51,13 +51,6 @@ public class ChatRoomFragment extends Fragment {
 
     private FragmentChatroomBinding binding; // binding muss immer so heißen wie xml in CamelCase und Binding am schluss
 
-
-
-
-
-
-
-
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -67,31 +60,31 @@ public class ChatRoomFragment extends Fragment {
 
 
 
-        binding.buttonSend.setOnClickListener(v -> sendMessage());
+
         return binding.getRoot();
 
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        binding.buttonSend.setOnClickListener(v -> sendMessage());
 
-
-
+/*
         binding.buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Support Emai Action Button
-                NavHostFragment.findNavController(ChatRoomFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SupportFragment);
 
             }
         });
 
 
+ */
+
     }
     public void sendMessage() {
         String message = binding.editTextMessage.getText().toString();
         if (!message.isEmpty()) {
+            Log.d("MyApp", "sendMessage clicked");
             addChatMessage("Du: " + message);
 
             // Hier die Logik zum Speichern in der Datenbank aufrufen

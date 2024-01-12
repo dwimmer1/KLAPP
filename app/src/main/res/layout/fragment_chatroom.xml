@@ -28,8 +28,8 @@
 
         <EditText
             android:id="@+id/editTextMessage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="45dp"
+            android:layout_height="48dp"
             android:layout_alignParentLeft="true"
             android:layout_toLeftOf="@+id/buttonSend"
             android:hint="Nachricht eingeben"/>
