@@ -2,6 +2,9 @@ package com.example.firstandroidapp;
 
 
 import android.os.AsyncTask;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //DataFetcher isntances of database
+@RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
 public class DataFetcherKletterSteig extends AsyncTask<String, Void, List<KlappData>> {
 
     private OnDataFetchedListener listener;
