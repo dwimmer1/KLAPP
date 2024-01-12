@@ -117,6 +117,14 @@ public class FirstFragment extends Fragment {
                 //.navigate(R.id.action_FirstFragment_to_UserDetailFragment);
             }
         });
+        binding.chatRoomBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(FirstFragment.this)
+                        .navigate(R.id.action_FirstFragment_to_ChatRoomFragment);
+                //.navigate(R.id.action_FirstFragment_to_UserDetailFragment);
+            }
+        });
     }
     private class DatenAbrufenTask extends AsyncTask<String, Void, String> {
         @Override

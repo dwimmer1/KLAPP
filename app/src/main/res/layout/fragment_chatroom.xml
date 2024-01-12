@@ -1,30 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- fragment_settings.xml -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center">
+    android:layout_height="match_parent">
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewChat"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="435dp"
-        android:layout_above="@+id/inputLayout" />
+        android:layout_height="match_parent"
+        android:layout_above="@+id/messageInputLayout">
 
-    <EditText
-        android:id="@+id/editTextMessage"
-        android:layout_width="274dp"
+        <LinearLayout
+            android:id="@+id/chatContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/messageInputLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:hint="Type your message" />
+        android:layout_alignParentBottom="true"
+        android:background="#eeeeee"
+        android:padding="16dp">
 
-    <Button
-        android:id="@+id/buttonSend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Send" />
+        <EditText
+            android:id="@+id/editTextMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/buttonSend"
+            android:hint="Nachricht eingeben"/>
 
+        <Button
+            android:id="@+id/buttonSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Senden"/>
+    </RelativeLayout>
 
-</LinearLayout>
+</RelativeLayout>

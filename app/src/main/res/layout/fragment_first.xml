@@ -12,6 +12,14 @@
 
 
     <Button
+        android:id="@+id/chatRoomBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ChatRoomTemporary"
+        tools:layout_editor_absoluteX="99dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <Button
         android:id="@+id/tempSwitchBTN2"
         android:layout_width="346dp"
         android:layout_height="wrap_content"
@@ -21,7 +29,7 @@
         android:id="@+id/tempSwitchBTN"
         android:layout_width="181dp"
         android:layout_height="wrap_content"
-        android:text="DONT TOUCH" />
+        android:text="Übersicht" />
 
     <EditText
         android:id="@+id/testView"

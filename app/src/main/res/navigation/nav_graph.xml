@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_KletterSteig"
             app:destination="@id/KletterSteig" />
+        <action
+            android:id="@+id/action_FirstFragment_to_ChatRoomFragment"
+            app:destination="@id/ChatRoomFragment" />
     </fragment>
     <fragment
         android:id="@+id/UserDetailFragment"
