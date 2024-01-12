@@ -59,7 +59,7 @@ public class DataFetcherKletterSteig extends AsyncTask<String, Void, List<KlappD
                     String linktowebsite = jsonObjekt.getString("linktowebsite");
                     String userid = jsonObjekt.getString("userid");
                     String datecreated = jsonObjekt.getString("datecreated");
-
+                  //  String qrCode = jsonObjekt.getString("qr_code");
 
                     // Erstelle ein Klapp-Objekt und füge es der Liste hinzu
                     KlappData klappData = new KlappData(name,description,risetime,descenttime,dateaccessible,dateAccCreated,status,startingpoint,endpoint,federalstate,difficulty,linktowebsite,userid,datecreated);
