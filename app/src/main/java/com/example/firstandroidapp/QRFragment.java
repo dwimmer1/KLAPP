@@ -37,4 +37,5 @@ public class QRFragment extends Fragment {
         integrator.setBeepEnabled(true);
         integrator.initiateScan();
     }
+
 }
