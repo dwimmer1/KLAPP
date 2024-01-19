@@ -58,6 +58,9 @@ public class ChatRoomFragment extends Fragment {
     ) {
         binding = FragmentChatroomBinding.inflate(inflater, container, false);
 
+
+
+
         return binding.getRoot();
 
     }
@@ -84,7 +87,7 @@ public class ChatRoomFragment extends Fragment {
             Log.d("MyApp", "sendMessage clicked");
             addChatMessage("Du: " + message);
 
-
+            // Hier die Logik zum Speichern in der Datenbank aufrufen
             new SaveMessageTask().execute(message);
 
             // Nachrichtenfeld leeren
@@ -103,17 +106,19 @@ public class ChatRoomFragment extends Fragment {
 
         @Override
         protected Void doInBackground(String... params) {
-
+            // Hier sollte die Logik zum Speichern der Nachricht in der Datenbank stehen
+            // Beispiel: Aufruf einer Methode, die die Nachricht in der Datenbank speichert
             saveMessageToDatabase(params[0]);
             return null;
         }
 
         private void saveMessageToDatabase(String message) {
-
+            // Hier sollte die tatsächliche Logik zum Speichern in der Datenbank stehen
+            // In diesem Beispiel wird nur die aktuelle Zeit als Zeitstempel hinzugefügt
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault());
             String timestamp = dateFormat.format(new Date());
 
-
+            // Hier können Sie Ihren eigenen Datenbank-Speichercode hinzufügen
             // Beispiel: dbHelper.saveMessage(message, timestamp);
         }
     }
