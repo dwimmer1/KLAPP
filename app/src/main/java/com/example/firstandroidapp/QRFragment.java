@@ -60,6 +60,7 @@ public class QRFragment extends Fragment {
 
                     // DB abfragen wegen UUID und Klettersteig basierend darauf laden
 
+
                 } else {
                     Log.d("QRCodeScanner", "Der gescannte Wert enthält keine UUID.");
                 }
