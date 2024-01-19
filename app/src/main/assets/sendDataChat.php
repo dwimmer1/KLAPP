@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = $_POST["message"];
     $timestamp = $_POST["timestamp"];
 
-    $sql = "INSERT INTO Chat (name, message, timestamp) VALUES ('$sender', '$message', $timestamp)";
+    $sql = "INSERT INTO Chat (name, message, timestamp) VALUES ('$sender', '$message', STR_TO_DATE('$timestamp', '%Y-%m-%d %H:%i:%s'))";
     $result = $conn->query($sql);
 
     if ($result) {

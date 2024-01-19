@@ -89,6 +89,9 @@ public class FirstFragment extends Fragment {
                 if (userNames.contains(enteredUserName) && passwords.contains(enteredPassword)) {
                     Log.d("LoginIdentifier", "Success");
 
+                    //Saves currentLoggedInUser in Singelton
+                    LoggendUserSingleton.getInstance().setUserNames(enteredUserName);
+
                     Toast.makeText(getContext(), "Erfolgreich Eingeloggt", Toast.LENGTH_LONG).show();
                     NavHostFragment.findNavController(FirstFragment.this)
                             .navigate(R.id.action_FirstFragment_to_SecondFragment);
