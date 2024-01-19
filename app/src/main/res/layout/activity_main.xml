@@ -15,17 +15,12 @@
         android:clipToPadding="false"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:listitem="@layout/item_account" />
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/Theme.FirstAndroidApp.AppBarOverlay"/>
-
-    <include
-        layout="@layout/content_main"
-        android:layout_height="match_parent" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
