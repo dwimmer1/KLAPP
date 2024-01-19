@@ -1,7 +1,6 @@
 package com.example.firstandroidapp;
 
 
-
 //Singelton in which User is currently logged in
 public class LoggendUserSingleton {
 

@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.firstandroidapp.databinding.FragmentChatroomBinding;
 import com.example.firstandroidapp.databinding.FragmentFirstBinding;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -56,6 +57,45 @@ import java.util.List;
 public class ChatRoomFragment extends Fragment {
 
     private FragmentChatroomBinding binding; // binding muss immer so heißen wie xml in CamelCase und Binding am schluss
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    String timestamp = sdf.format(new Date());
+
+    private class GetMessagesTask extends AsyncTask<Void, Void, String> {
+        @Override
+        protected String doInBackground(Void... voids) {
+            try {
+                // URL für getDataChat.php anpassen
+                String urlString = "http://192.168.56.1/Klapp/getDataChat.php";
+                URL url = new URL(urlString);
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
+                // Antworte von der PHP-Seite lesen
+                InputStream inputStream = urlConnection.getInputStream();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+
+                StringBuilder result = new StringBuilder();
+                String line;
+                TextView textView = new TextView(requireContext());
+
+
+                while ((line = reader.readLine()) != null) {
+                    result.append(line);
+                    textView.append(result);
+
+                }
+                binding.chatContainer.addView(textView);
+
+                reader.close();
+                inputStream.close();
+
+                return result.toString();
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+    }
+
 
     private class SendMessageTask extends AsyncTask<String, Void, String> {
         @Override
@@ -63,7 +103,6 @@ public class ChatRoomFragment extends Fragment {
             try {
                 String name = params[0];
                 String message = params[1];
-                SimpleDateFormat timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
                 // URL für sendDataChat.php anpassen
                 String urlString = "http://192.168.56.1/Klapp/sendDataChat.php";
@@ -77,8 +116,8 @@ public class ChatRoomFragment extends Fragment {
                 BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
 
                 String postData = "name=" + URLEncoder.encode(name, "UTF-8") +
-                        "&message=" + URLEncoder.encode(message, "UTF-8")+
-                        "&timestamp=" + URLEncoder.encode(message, "UTF-8");
+                        "&message=" + URLEncoder.encode(message, "UTF-8") +
+                        "&timestamp=" + URLEncoder.encode(String.valueOf(timestamp), "UTF-8");
 
                 writer.write(postData);
                 writer.flush();
@@ -106,11 +145,12 @@ public class ChatRoomFragment extends Fragment {
             }
         }
 
+
+
         @Override
         protected void onPostExecute(String result) {
             if (result != null) {
-                // Verarbeitung der Antwort, wenn erforderlich
-                // Zum Beispiel eine Toast-Nachricht anzeigen
+                Log.d("Message", result + " slpit ");
                 Toast.makeText(getContext(), result, Toast.LENGTH_SHORT).show();
             }
         }
@@ -125,8 +165,6 @@ public class ChatRoomFragment extends Fragment {
         binding = FragmentChatroomBinding.inflate(inflater, container, false);
 
 
-
-
         return binding.getRoot();
 
     }
@@ -135,25 +173,25 @@ public class ChatRoomFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         binding.buttonSend.setOnClickListener(v -> sendMessage());
 
-/*
-        binding.buttonSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-
- */
+        GetMessagesTask getMessagesTask = new GetMessagesTask();
+        getMessagesTask.execute();
 
     }
+
     public void sendMessage() {
         String message = binding.editTextMessage.getText().toString();
-       // SaveDataAsyncTask.execute(username, description, risetime, descenttime, status, startingpoint, federalstate, difficulty, datecreated);
 
         if (!message.isEmpty()) {
             Log.d("MyApp", "sendMessage clicked");
-            addChatMessage("Du: " + message);
+            String userName = LoggendUserSingleton.getInstance().getUserNames();
+
+            addChatMessage(timestamp + " " + userName + ":  " + message);
+
+            SendMessageTask sendMessageTask = new SendMessageTask();
+
+
+            // Mit Singelton
+            sendMessageTask.execute(userName, message);
 
             // Hier die Logik zum Speichern in der Datenbank aufrufen
             new SaveMessageTask().execute(message);
@@ -162,34 +200,31 @@ public class ChatRoomFragment extends Fragment {
             binding.editTextMessage.setText("");
         }
     }
+
     private void addChatMessage(String message) {
         TextView textView = new TextView(requireContext());
         textView.setText(message);
         binding.chatContainer.addView(textView);
 
 
-
         // Scrollen zum neuesten Nachrichtenende
         //binding.chatContainer.post(() -> binding.chatContainer.scrollF.fullScroll(View.FOCUS_DOWN));
     }
+
     private class SaveMessageTask extends AsyncTask<String, Void, Void> {
 
         @Override
         protected Void doInBackground(String... params) {
-            // Hier sollte die Logik zum Speichern der Nachricht in der Datenbank stehen
-            // Beispiel: Aufruf einer Methode, die die Nachricht in der Datenbank speichert
             saveMessageToDatabase(params[0]);
             return null;
         }
 
         private void saveMessageToDatabase(String message) {
-            // Hier sollte die tatsächliche Logik zum Speichern in der Datenbank stehen
-            // In diesem Beispiel wird nur die aktuelle Zeit als Zeitstempel hinzugefügt
+
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault());
             String timestamp = dateFormat.format(new Date());
 
-            // Hier können Sie Ihren eigenen Datenbank-Speichercode hinzufügen
-            // Beispiel: dbHelper.saveMessage(message, timestamp);
+
         }
     }
 

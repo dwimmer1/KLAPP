@@ -5,7 +5,9 @@ $username = "klapp";
 $password = "superklapp";
 $dbname = "klapp";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+//sendet Daten an chat
+
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sender = $_POST["name"];
