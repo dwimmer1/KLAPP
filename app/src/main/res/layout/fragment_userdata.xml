@@ -4,17 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mainbackground"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/background">
 
 
-    <ImageView
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_gravity="center"
-        android:src="@drawable/ic_launcher_foreground" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageView3"
+        android:layout_width="190dp"
+        android:layout_height="120dp"
+        android:src="@drawable/logo"
+        app:shapeAppearanceOverlay="@style/Circular"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="-100dp"/>
+
+
 
     <TextView
         android:id="@+id/textViewUsername"
@@ -22,15 +28,16 @@
         android:layout_height="wrap_content"
         android:text="Username: "
         android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textAlignment="center"/>
 
     <TextView
         android:id="@+id/textViewEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Email: "
+        android:text="E-Mail: "
         android:textColor="@color/white"
-
+        android:textAlignment="center"
         android:textSize="20sp" />
 
     <TextView
@@ -39,7 +46,8 @@
         android:layout_height="wrap_content"
         android:text="Password: "
         android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textAlignment="center"/>
 
     <TextView
         android:id="@+id/textViewUserId"
@@ -47,7 +55,8 @@
         android:layout_height="wrap_content"
         android:text="User ID: "
         android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textAlignment="center"/>
 
     <TextView
         android:id="@+id/textViewPhoneNumber"
@@ -55,7 +64,8 @@
         android:layout_height="wrap_content"
         android:text="Phone Number: "
         android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textAlignment="center"/>
 
     <TextView
         android:id="@+id/textViewDateAccountCreated"
@@ -63,7 +73,8 @@
         android:layout_height="wrap_content"
         android:text="Account Created: "
         android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textAlignment="center"/>
 
     <TextView
         android:id="@+id/textViewUserRole"
@@ -71,12 +82,14 @@
         android:layout_height="wrap_content"
         android:text="User Role: "
         android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textAlignment="center"/>
 
     <Button
         android:id="@+id/BtnBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="BackToMyCreator Yuhh" />
+        android:text="Back"
+        android:backgroundTint="@color/black"/>
 
 </LinearLayout>
