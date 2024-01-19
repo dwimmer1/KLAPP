@@ -48,5 +48,14 @@
         android:textColor="@color/white"
         android:id="@+id/loginButton"/>
 
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="QR-Code"
+        android:backgroundTint="@color/black"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        android:id="@+id/tempSwitchBTN"/>
+
 
 </LinearLayout>
