@@ -1,26 +1,74 @@
-<!-- res/layout/activity_main.xml -->
-
-<RelativeLayout
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
     android:gravity="center"
-    android:orientation="vertical">
+    android:background="@drawable/background">
 
-    <TextView
-        android:id="@+id/result_text"
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageView3"
+        android:layout_width="190dp"
+        android:layout_height="120dp"
+        android:src="@drawable/logoBlauBerg"
+        app:shapeAppearanceOverlay="@style/Circular"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="-100dp"/>
+
+    <EditText
+        android:id="@+id/editTextText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Loading..."
-        android:textSize="18sp"
-        android:textStyle="bold"/>
+        android:background="@null"
+        android:gravity="center"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:text="Scan QR Code"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-100dp"
+        android:background="@null"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:text="To scan a QR Code, use the button below"
+        android:textColor="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/imageViewExample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/KlettersteigTestQRCode"
+        android:layout_marginTop="150dp"/>
 
     <Button
         android:id="@+id/scan_btn"
-        android:layout_below="@id/result_text"
-        android:layout_marginTop="16dp"
-        android:layout_width="wrap_content"
+        android:layout_width="102dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="170dp"
+        android:layout_marginLeft="170dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="170dp"
+        android:layout_marginRight="170dp"
+        android:backgroundTint="@color/black"
         android:text="Scan"/>
-</RelativeLayout>
+
+</LinearLayout>
+
+
+
+
+
+
+
