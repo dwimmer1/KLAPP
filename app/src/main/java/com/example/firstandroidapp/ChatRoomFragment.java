@@ -31,6 +31,12 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -50,6 +56,66 @@ import java.util.List;
 public class ChatRoomFragment extends Fragment {
 
     private FragmentChatroomBinding binding; // binding muss immer so heißen wie xml in CamelCase und Binding am schluss
+
+    private class SendMessageTask extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                String name = params[0];
+                String message = params[1];
+                SimpleDateFormat timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+                // URL für sendDataChat.php anpassen
+                String urlString = "http://192.168.56.1/Klapp/sendDataChat.php";
+                URL url = new URL(urlString);
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
+                urlConnection.setRequestMethod("POST");
+                urlConnection.setDoOutput(true);
+
+                OutputStream outputStream = urlConnection.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+
+                String postData = "name=" + URLEncoder.encode(name, "UTF-8") +
+                        "&message=" + URLEncoder.encode(message, "UTF-8")+
+                        "&timestamp=" + URLEncoder.encode(message, "UTF-8");
+
+                writer.write(postData);
+                writer.flush();
+                writer.close();
+                outputStream.close();
+
+                // Antworte von der PHP-Seite lesen
+                InputStream inputStream = urlConnection.getInputStream();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+
+                StringBuilder result = new StringBuilder();
+                String line;
+
+                while ((line = reader.readLine()) != null) {
+                    result.append(line);
+                }
+
+                reader.close();
+                inputStream.close();
+
+                return result.toString();
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            if (result != null) {
+                // Verarbeitung der Antwort, wenn erforderlich
+                // Zum Beispiel eine Toast-Nachricht anzeigen
+                Toast.makeText(getContext(), result, Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
 
     @Override
     public View onCreateView(
@@ -83,6 +149,8 @@ public class ChatRoomFragment extends Fragment {
     }
     public void sendMessage() {
         String message = binding.editTextMessage.getText().toString();
+       // SaveDataAsyncTask.execute(username, description, risetime, descenttime, status, startingpoint, federalstate, difficulty, datecreated);
+
         if (!message.isEmpty()) {
             Log.d("MyApp", "sendMessage clicked");
             addChatMessage("Du: " + message);
@@ -98,6 +166,8 @@ public class ChatRoomFragment extends Fragment {
         TextView textView = new TextView(requireContext());
         textView.setText(message);
         binding.chatContainer.addView(textView);
+
+
 
         // Scrollen zum neuesten Nachrichtenende
         //binding.chatContainer.post(() -> binding.chatContainer.scrollF.fullScroll(View.FOCUS_DOWN));
