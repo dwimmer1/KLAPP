@@ -39,7 +39,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/edittext_background"
-        android:hint="Vorname"
+        android:hint="First name"
         android:inputType="textPersonName"
         android:padding="10dp" />
 
@@ -49,7 +49,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/edittext_background"
-        android:hint="Nachname"
+        android:hint="Last name"
         android:inputType="textPersonName"
         android:padding="10dp" />
 
