@@ -6,87 +6,162 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="30dp"
+    android:background="@drawable/background">
 
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageView3"
+        android:layout_width="190dp"
+        android:layout_height="120dp"
+        android:src="@drawable/logo"
+        app:shapeAppearanceOverlay="@style/Circular"
+        android:layout_marginTop="1dp"/>
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@null"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="text"
+        android:minHeight="40dp"
+        android:text="Create new route"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/editTextUsername"
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Username" />
+        android:layout_height="44dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Username"
+        android:inputType="text"
+        android:padding="10dp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/editTextDescription"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-     
-        android:layout_below="@id/editTextUsername"
-        android:hint="Description" />
+        android:layout_height="44dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Description"
+        android:inputType="text"
+        android:padding="10dp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/editTextRisetime"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_below="@id/editTextDescription"
-        android:hint="Risetime" />
+        android:layout_height="44dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Risetime"
+        android:inputType="text"
+        android:padding="10dp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/editTextDescenttime"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextRisetime"
-        android:hint="Descenttime" />
+        android:layout_height="44dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Descenttime"
+        android:inputType="text"
+        android:padding="10dp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/editTextStatus"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextDescenttime"
-        android:hint="Status" />
+        android:layout_height="44dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Status"
+        android:inputType="text"
+        android:padding="10dp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/editTextStartingPoint"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextStatus"
-        android:hint="Starting Point" />
+        android:layout_height="44dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Starting Point"
+        android:inputType="text"
+        android:padding="10dp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/editTextFederalState"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextStartingPoint"
-        android:hint="Federal State" />
+        android:layout_height="44dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Federal State"
+        android:inputType="text"
+        android:padding="10dp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/editTextDifficulty"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextFederalState"
-        android:hint="Difficulty" />
+        android:layout_height="44dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Difficulty"
+        android:inputType="text"
+        android:padding="10dp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/editTextDateCreated"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextDifficulty"
-        android:hint="Date Created" />
+        android:layout_height="44dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Date Created"
+        android:inputType="text"
+        android:padding="10dp"
+        tools:ignore="TouchTargetSizeCheck" />
 
-    <Button
-        android:id="@+id/buttonSaveData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="38dp"
-        android:layout_below="@id/editTextDateCreated"
-        android:text="Daten speichern" />
 
-    <Button
-        android:id="@+id/BtnBack"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:textSize="18dp"
         android:layout_height="wrap_content"
-        android:text="BackToBack" />
+        android:layout_below="@id/editTextDateCreated"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/BtnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/black"
+            android:text="Back"
+            android:textSize="14dp"
+            tools:ignore="TouchTargetSizeCheck,TextSizeCheck" />
+
+        <Button
+            android:id="@+id/buttonSaveData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/black"
+            android:text="Save"
+            android:textSize="14dp"
+            tools:ignore="TouchTargetSizeCheck,TextSizeCheck" />
+
+    </LinearLayout>
 
 </LinearLayout>

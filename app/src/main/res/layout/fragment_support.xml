@@ -4,65 +4,113 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/cardview_dark_background"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/background">
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageView3"
+        android:layout_width="190dp"
+        android:layout_height="120dp"
+        android:src="@drawable/logo"
+        app:shapeAppearanceOverlay="@style/Circular"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="-100dp"/>
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:background="@null"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:text="Write to Support"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp" />
 
     <EditText
         android:id="@+id/editTextFirstName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_background"
         android:hint="Vorname"
         android:inputType="textPersonName"
-        android:minHeight="48dp" />
+        android:padding="10dp" />
 
     <EditText
         android:id="@+id/editTextLastName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_background"
         android:hint="Nachname"
         android:inputType="textPersonName"
-        android:minHeight="48dp" />
+        android:padding="10dp" />
 
     <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:layout_marginBottom="8dp"/>
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_background"
+        android:hint="E-Mail"
+        android:inputType="textPersonName"
+        android:padding="10dp" />
 
     <EditText
         android:id="@+id/editTextPhoneNumber"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:hint="Telefonnummer"
-        android:inputType="phone"
-        android:layout_marginBottom="8dp"/>
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Phone Number"
+        android:inputType="textPersonName"
+        android:padding="10dp" />
 
     <EditText
         android:id="@+id/editTextMessage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:hint="Nachricht"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Message"
         android:inputType="textMultiLine"
-        android:minHeight="48dp" />
+        android:padding="10dp" />
 
-    <Button
-        android:id="@+id/btnSend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Senden"
-        android:layout_gravity="center"/>
-
-    <Button
-        android:id="@+id/BtnBack"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="BackToMyCreator Yuhh" />
+        android:layout_below="@id/editTextDateCreated"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/BtnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="50dp"
+            android:text="Back"
+            android:backgroundTint="@color/black"
+            android:textSize="16dp" />
+
+        <Button
+            android:id="@+id/btnSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="100dp"
+            android:text="Send"
+            android:backgroundTint="@color/black"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+
 
 </LinearLayout>

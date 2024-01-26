@@ -7,53 +7,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@drawable/mainbackground"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@drawable/background">
 
-
-    <Button
-        android:id="@+id/chatRoomBTN"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ChatRoomTemporary"
-        tools:layout_editor_absoluteX="99dp"
-        tools:layout_editor_absoluteY="0dp" />
-
-    <Button
-        android:id="@+id/tempSwitchBTN2"
-        android:layout_width="346dp"
-        android:layout_height="wrap_content"
-        android:text="Create Klettersteig" />
-
-    <Button
-        android:id="@+id/tempSwitchBTN"
-        android:layout_width="181dp"
-        android:layout_height="wrap_content"
-        android:text="Übersicht" />
-
-    <EditText
-        android:id="@+id/testView"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/edittext_background"
-        android:hint="XAMPP STARTEN FÜR LOGIN"
-        android:inputType="text"
-        android:padding="10dp" />
-
-    <ImageView
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:src="@drawable/ic_launcher_foreground"
-        android:layout_gravity="center"/>
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageView3"
+        android:layout_width="190dp"
+        android:layout_height="120dp"
+        android:src="@drawable/logo"
+        app:shapeAppearanceOverlay="@style/Circular"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="-100dp"/>
 
     <EditText
         android:id="@+id/usernameEditText"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/edittext_background"
-        android:hint="Benutzername"
+        android:hint="Username"
         android:inputType="text"
         android:padding="10dp" />
 
@@ -61,26 +32,28 @@
         android:id="@+id/passwordEditText"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:hint="Passwort"
+        android:hint="Password"
         android:inputType="textPassword"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/edittext_background"
+        android:layout_marginTop="16dp"
         android:padding="10dp" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Anmelden"
+        android:text="Login"
+        android:backgroundTint="@color/black"
         android:layout_marginTop="16dp"
+        android:textColor="@color/white"
         android:id="@+id/loginButton"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/supportBTN"
-        android:layout_width="match_parent"
+    <Button
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
+        android:text="QR-Code"
+        android:backgroundTint="@color/black"
         android:layout_marginTop="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:textColor="@color/white"
+        android:id="@+id/tempSwitchBTN"/>
 
 
 </LinearLayout>
