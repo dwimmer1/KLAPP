@@ -31,7 +31,7 @@ public class KletterSteigFragment extends Fragment implements DataFetcherKletter
     private class SaveDataAsyncTask extends AsyncTask<String, Void, Void> {
 
         protected Void doInBackground(String... params) {
-            String name = params[0];
+            String name = params[0]; //a
             String description = params[1];
             String risetime = params[2];
             String descenttime = params[3];
