@@ -1,6 +1,7 @@
 package com.example.firstandroidapp;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,19 +38,29 @@ public class UserDetailsFragment extends Fragment implements DataFetcher.OnDataF
 
     @Override
     public void onDataFetched(List<UserData> userDataList) {
-        // TODO gehört noch gemacht das der benutzer welcher eingeloggt ist angezeigt wird
-
+        // TODO gehört noch gemacht das der benutzer welcher eingeloggt ist angezeigt wird (FINISSHE)
+        String userName = LoggendUserSingleton.getInstance().getUserNames();
         if (!userDataList.isEmpty()) {
-            UserData firstUser = userDataList.get(1); // Beispiel: Nehme den ersten Benutzer
-            binding.textViewUsername.setText("Username: " + firstUser.getUsername());
-            binding.textViewEmail.setText("Email: " + firstUser.getEmail());
-            binding.textViewPassword.setText("Password: " + firstUser.getPassword());
-            binding.textViewUserId.setText("UserId: " + firstUser.getUserid());
-            binding.textViewPhoneNumber.setText("Phone Number: " + firstUser.getPhoneNumber());
-            binding.textViewDateAccountCreated.setText("Account Created: " + firstUser.getDateAccountCreated());
-            binding.textViewUserRole.setText("UserRole: " + firstUser.getUserRole());
+
+            for (int i = 0; i < userDataList.size(); i++) {
+                UserData firstUser = userDataList.get(i); // Beispiel: Nehme den ersten Benutzer
+
+                if (firstUser.getUsername().contains(userName)){
+
+                    binding.textViewUsername.setText("Username: " + firstUser.getUsername());
+                    binding.textViewEmail.setText("Email: " + firstUser.getEmail());
+                    binding.textViewPassword.setText("Password: " + firstUser.getPassword());
+                    binding.textViewUserId.setText("UserId: " + firstUser.getUserid());
+                    binding.textViewPhoneNumber.setText("Phone Number: " + firstUser.getPhoneNumber());
+                    binding.textViewDateAccountCreated.setText("Account Created: " + firstUser.getDateAccountCreated());
+                    binding.textViewUserRole.setText("UserRole: " + firstUser.getUserRole());
+                }
+            }
+
+
             //binding.textViewUserRole.setText("RCode: " + firstUser.getQRCode())
             //binding.textView.
+
 
         }
     }
