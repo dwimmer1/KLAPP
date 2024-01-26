@@ -55,5 +55,11 @@
         android:textColor="@color/white"
         android:id="@+id/tempSwitchBTN"/>
 
+    <Button
+        android:id="@+id/chatRoomBTN"
+        android:layout_width="176dp"
+        android:layout_height="53dp"
+        android:text="ChatRoom" />
+
 
 </LinearLayout>
