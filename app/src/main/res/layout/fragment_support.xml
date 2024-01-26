@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/edittext_background"
+        android:background="@drawable/frame_black"
         android:hint="First name"
         android:inputType="textPersonName"
         android:padding="10dp" />
@@ -48,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/edittext_background"
+        android:background="@drawable/frame_black"
         android:hint="Last name"
         android:inputType="textPersonName"
         android:padding="10dp" />
@@ -58,7 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/edittext_background"
+        android:background="@drawable/frame_black"
         android:hint="E-Mail"
         android:inputType="textPersonName"
         android:padding="10dp" />
@@ -68,7 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/edittext_background"
+        android:background="@drawable/frame_black"
         android:hint="Phone Number"
         android:inputType="textPersonName"
         android:padding="10dp" />
@@ -78,7 +78,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/edittext_background"
+        android:background="@drawable/frame_black"
         android:hint="Message"
         android:inputType="textMultiLine"
         android:padding="10dp" />
