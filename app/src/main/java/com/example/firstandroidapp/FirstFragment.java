@@ -67,15 +67,9 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.supportBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Support Emai Action Button
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SupportFragment);
 
-            }
-        });
+
+
 
 
         binding.loginButton.setOnClickListener(new View.OnClickListener() {
@@ -112,6 +106,7 @@ public class FirstFragment extends Fragment {
                 //.navigate(R.id.action_FirstFragment_to_UserDetailFragment);
             }
         });
+        /*
         binding.tempSwitchBTN2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,6 +123,8 @@ public class FirstFragment extends Fragment {
                 //.navigate(R.id.action_FirstFragment_to_UserDetailFragment);
             }
         });
+
+         */
     }
     private class DatenAbrufenTask extends AsyncTask<String, Void, String> {
         @Override
