@@ -58,7 +58,7 @@ public class FirstFragment extends Fragment {
 
         DatenAbrufenTask datenAbrufenTask = new DatenAbrufenTask();
         // CHANGE TO RIGHT IP ADRESS
-        datenAbrufenTask.execute("http://192.168.56.1/Klapp/getData.php");
+        datenAbrufenTask.execute("http://klettersteig-app.at/daten/getData.php");
 
         return binding.getRoot();
 
