@@ -65,7 +65,8 @@ public class ChatRoomFragment extends Fragment {
         protected String doInBackground(Void... voids) {
             try {
                 // URL für getDataChat.php anpassen
-                String urlString = "http://192.168.56.1/Klapp/getDataChat.php";
+                //String urlString = "http://192.168.56.1/Klapp/getDataChat.php";
+                String urlString = "https://klettersteig-app.at/daten/getDataChat.php";
                 URL url = new URL(urlString);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 

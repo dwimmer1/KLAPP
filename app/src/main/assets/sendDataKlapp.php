@@ -1,10 +1,12 @@
 <?php
 
-$servername = "xserv";
-$port = 3306;
-$username = "klapp";
+
+$servername = "d03f5d74";
+$username = "d03f5d74";
 $password = "superklapp";
-$dbname = "klapp";
+$dbname = "d03f5d74";
+
+
 // Daten aus der Anfrage verarbeiten und in die Datenbank einfügen
 
 $conn = new mysqli($servername, $username, $password, $dbname, $port);

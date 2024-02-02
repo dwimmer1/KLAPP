@@ -1,10 +1,10 @@
 <?php
 //Dy
-$servername = "xserv";
-$port = 3306;
-$username = "klapp";
+
+$servername = "d03f5d74";
+$username = "d03f5d74";
 $password = "superklapp";
-$dbname = "klapp";
+$dbname = "d03f5d74";
 
 // Verbindung herstellen
 $conn = new mysqli($servername, $username, $password, $dbname, $port);

@@ -14,7 +14,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.firstandroidapp.databinding.ActivityMainBinding;
-import com.journeyapps.barcodescanner.CaptureActivity;
+
 
 import android.view.Menu;
 import android.view.MenuItem;

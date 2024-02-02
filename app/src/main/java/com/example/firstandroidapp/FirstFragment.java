@@ -104,6 +104,7 @@ public class FirstFragment extends Fragment {
                 NavHostFragment.findNavController(FirstFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
                 //.navigate(R.id.action_FirstFragment_to_UserDetailFragment);
+
             }
         });
 
@@ -125,7 +126,8 @@ public class FirstFragment extends Fragment {
         protected String doInBackground(String... strings) {
             try {
                 // Die URL aus den Parametern extrahieren
-                String urlStr = "http://192.168.56.1/Klapp/getData.php";
+                //String urlStr = "http://192.168.56.1/Klapp/getData.php";
+                String urlStr = "https://klettersteig-app.at/daten/getData.php";
                 URL url = new URL(urlStr);
 
                 // Eine Verbindung zur URL herstellen und den Inhalt lesen

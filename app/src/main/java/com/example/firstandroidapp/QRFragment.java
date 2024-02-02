@@ -12,8 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
+//import com.google.zxing.integration.android.IntentIntegrator;
+//import com.google.zxing.integration.android.IntentResult;
 
 public class QRFragment extends Fragment {
 
@@ -24,7 +24,7 @@ public class QRFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_q_r, container, false);
     }
-
+/*
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Button scanButton = view.findViewById(R.id.scan_btn);
@@ -71,6 +71,8 @@ public class QRFragment extends Fragment {
         }
     }
 
+
+
     private String extractUUIDFromLink(String link) {
         String[] parts = link.split("/");
         if (parts.length > 0) {
@@ -79,4 +81,6 @@ public class QRFragment extends Fragment {
             return null;
         }
     }
+
+ */
 }

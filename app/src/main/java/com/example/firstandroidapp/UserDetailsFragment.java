@@ -30,7 +30,8 @@ public class UserDetailsFragment extends Fragment implements DataFetcher.OnDataF
         binding = FragmentUserdataBinding.inflate(inflater, container, false);
 
         DataFetcher dataFetcher = new DataFetcher(this);
-        dataFetcher.execute("http://192.168.56.1/Klapp/getData.php");
+       // dataFetcher.execute("http://192.168.56.1/Klapp/getData.php");
+        dataFetcher.execute("https://klettersteig-app.at/daten/getData.php");
 
         return binding.getRoot();
 
