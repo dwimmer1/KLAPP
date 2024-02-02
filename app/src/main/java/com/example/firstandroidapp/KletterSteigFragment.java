@@ -43,7 +43,7 @@ public class KletterSteigFragment extends Fragment implements DataFetcherKletter
 
             try {
                 // HTTP-Anfrage an die serverseitige API senden
-                //URL url = new URL("http://192.168.56.1/Klapp/sendDataKlapp.phpp");
+                //URL url = new URL("http://192.168.56.1/Klapp/sendDataKlapp.php");
                 URL url = new URL("http://klettersteig-app.at/daten/sendDataKlapp.php");
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
@@ -94,7 +94,7 @@ public class KletterSteigFragment extends Fragment implements DataFetcherKletter
         binding = FragmentKlettersteigBinding.inflate(inflater, container, false);
 
         DataFetcherKletterSteig dataFetcherKlapp = new DataFetcherKletterSteig(this);
-        dataFetcherKlapp.execute("http://192.168.56.1/Klapp/getDataKlapp.php");
+        dataFetcherKlapp.execute("http://klettersteig-app.at/daten/getDataKlapp.php");
 
         return binding.getRoot();
 
