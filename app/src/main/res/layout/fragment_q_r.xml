@@ -49,8 +49,8 @@
         android:id="@+id/imageViewExample"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/klettersteigqr"
-        android:layout_marginTop="150dp"/>
+        android:src="@drawable/neuqr"
+        android:layout_marginTop="110dp"/>
 
     <Button
         android:id="@+id/scan_btn"
