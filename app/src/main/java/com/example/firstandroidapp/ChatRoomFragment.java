@@ -183,9 +183,10 @@ public class ChatRoomFragment extends Fragment {
         String message = binding.editTextMessage.getText().toString();
 
         if (!message.isEmpty()) {
-            Log.d("MyApp", "sendMessage clicked");
+            Log.d("MyApp", "sendMessage in");
             String userName = LoggendUserSingleton.getInstance().getUserNames();
 
+            //Vll fehler daran
             addChatMessage(timestamp + " " + userName + ":  " + message);
 
             SendMessageTask sendMessageTask = new SendMessageTask();
