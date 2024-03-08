@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.firstandroidapp.databinding.FragmentFirstBinding;
@@ -54,7 +56,7 @@ public class SecondFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        Log.d("admin?", userRoles);
         if ("Admin".equals(userRoles)) {
             binding.test.setVisibility(View.VISIBLE);
         } else {
@@ -75,9 +77,15 @@ public class SecondFragment extends Fragment {
                     case R.id.action_account:
                         loadFragment(new UserDetailsFragment());
                         return true;
+
                     case R.id.action_settings:
-                        loadFragment(new SettingsFragment());
-                        return true;
+                        if ("Admin".equals(userRoles)) {
+                            loadFragment(new SettingsFragment());
+                            return true;
+                        } else {
+                            Toast.makeText(getContext(), "Nur Administratoren haben Zugriff auf die Einstellungen", Toast.LENGTH_SHORT).show();
+                            return false;
+                        }
                 }
                 return false;
             }
