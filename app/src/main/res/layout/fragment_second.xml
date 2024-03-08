@@ -11,7 +11,14 @@
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottomNavigation" />
+        android:layout_above="@+id/bottomNavigation" >
+
+        <Button
+            android:id="@+id/test"
+            android:layout_width="194dp"
+            android:layout_height="125dp"
+            android:text="Can you see this?" />
+    </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
