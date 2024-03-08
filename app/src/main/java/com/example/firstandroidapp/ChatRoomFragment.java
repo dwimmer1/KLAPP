@@ -189,6 +189,7 @@ public class ChatRoomFragment extends Fragment {
             //Vll fehler daran
             addChatMessage(timestamp + " " + userName + ":  " + message);
 
+
             SendMessageTask sendMessageTask = new SendMessageTask();
 
 

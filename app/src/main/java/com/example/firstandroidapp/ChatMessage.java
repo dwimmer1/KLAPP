@@ -1,5 +1,5 @@
 package com.example.firstandroidapp;
-
+//vll noch ändern
 public class ChatMessage {
 
     private String name;
