@@ -6,6 +6,14 @@
     app:startDestination="@id/FirstFragment">
 
     <fragment
+        android:id="@+id/klettersteigListFragment"
+        android:name="com.example.firstandroidapp.KletterSteigListFragment"
+        android:label="@string/chat_fragment_label">
+        <action
+            android:id="@+id/action_SupportFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/ChatRoomFragment"
         android:name="com.example.firstandroidapp.ChatRoomFragment"
         android:label="@string/chat_fragment_label">
