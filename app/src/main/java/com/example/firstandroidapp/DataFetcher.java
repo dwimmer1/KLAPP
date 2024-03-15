@@ -50,10 +50,10 @@ public class DataFetcher extends AsyncTask<String, Void, List<UserData>> {
                     String userName = jsonObjekt.getString("username");
                     String password = jsonObjekt.getString("password");
                     String email = jsonObjekt.getString("email");
-                    String userId = jsonObjekt.getString("userid");
-                    String phoneNumber = jsonObjekt.getString("phonenumber");
-                    String dateAccCreated = jsonObjekt.getString("dateaccountcreated");
-                    String userRole = jsonObjekt.getString("userrole");
+                    String userId = jsonObjekt.getString("user_id");
+                    String phoneNumber = jsonObjekt.getString("phone_number");
+                    String dateAccCreated = jsonObjekt.getString("date_account_created");
+                    String userRole = jsonObjekt.getString("user_role");
                   //  String pfPath = jsonObjekt.getString("profilepicture");
 
 
