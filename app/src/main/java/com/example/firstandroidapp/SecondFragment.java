@@ -32,7 +32,7 @@ import java.util.List;
 public class SecondFragment extends Fragment {
 
     private FragmentSecondBinding binding;
-    String userRoles;
+
 
     public SecondFragment() {
         // Erforderlicher leerer öffentlicher Konstruktor
@@ -56,40 +56,43 @@ public class SecondFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Log.d("admin?", userRoles);
-        if ("Admin".equals(userRoles)) {
+        String userRole = LoggendUserSingleton.getInstance().getUserRole();
+
+        if ("Admin".equals(userRole)) {
             binding.test.setVisibility(View.VISIBLE);
         } else {
             binding.test.setVisibility(View.GONE);
         }
+    }
 
 
-        BottomNavigationView bottomNavigation = view.findViewById(R.id.bottomNavigation);
-        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
-
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.action_qr:
-                        loadFragment(new QRFragment());
-                        return true;
-                    case R.id.action_account:
-                        loadFragment(new UserDetailsFragment());
-                        return true;
-
-                    case R.id.action_settings:
-                        if ("Admin".equals(userRoles)) {
-                            loadFragment(new SettingsFragment());
+            private void setupBottomNavigation() {
+                String userRole = LoggendUserSingleton.getInstance().getUserRole();
+                BottomNavigationView bottomNavigation = binding.bottomNavigation;
+                bottomNavigation.setOnNavigationItemSelectedListener(item -> {
+                    switch (item.getItemId()) {
+                        case R.id.action_qr:
+                            loadFragment(new QRFragment());
                             return true;
-                        } else {
-                            Toast.makeText(getContext(), "Nur Administratoren haben Zugriff auf die Einstellungen", Toast.LENGTH_SHORT).show();
-                            return false;
-                        }
-                }
-                return false;
-            }
-        });
+                        case R.id.action_account:
+                            loadFragment(new UserDetailsFragment());
+                            return true;
+                        case R.id.action_settings:
+                            Log.d("navigation?", "Yoo" + userRole);
+
+                            if ("Admin".equals(userRole)) {
+                                loadFragment(new SettingsFragment());
+                                return true;
+                            } else {
+                                Toast.makeText(getContext(), "Nur Administratoren haben Zugriff auf die Einstellungen", Toast.LENGTH_SHORT).show();
+                                return false;
+                            }
+                    }
+                    return false;
+                });
+
+
 
         // Lade standardmäßig das QRFragment beim Start
         loadFragment(new QRFragment());
@@ -136,11 +139,9 @@ public class SecondFragment extends Fragment {
         @Override
         protected void onPostExecute(String result) {
             if (result != null) {
-                // Hier kannst du den PHP-Code in der result-Variable verwenden
-                // Achte darauf, dass dies aus Sicherheitsgründen nicht empfohlen ist
-                // PHP-Code sollte normalerweise auf einem Server ausgeführt werden
-                Log.d("DatenAbrufenTask", "Serverantwort: " + result);
+              Log.d("DatenAbrufenTask", "Serverantwort: " + result);
                 loggeDaten(result);
+                setupBottomNavigation();
             }
         }
 
@@ -151,14 +152,14 @@ public class SecondFragment extends Fragment {
                     JSONObject jsonObjekt = jsonArray.getJSONObject(i);
                     String userRole = jsonObjekt.getString("user_role");
 
-
                     // Speichere roles in den Listen
-                    userRoles = userRole;
+                  //  userRole = userRole;
                 }
 
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
+
     }
 }

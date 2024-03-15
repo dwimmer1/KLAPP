@@ -6,6 +6,7 @@ public class LoggendUserSingleton {
 
     private static LoggendUserSingleton instance;
     private String loggedinUser;
+    private String loggedinUserRole;
 
     private LoggendUserSingleton() {
         loggedinUser = "";
@@ -24,5 +25,12 @@ public class LoggendUserSingleton {
 
     public void setUserNames(String loggedinUser) {
         this.loggedinUser = loggedinUser;
+    }
+
+    public String getUserRole(){
+        return loggedinUserRole;
+    }
+    public void setUserRole(String loggedinUserRole){
+        this.loggedinUserRole = loggedinUserRole;
     }
 }

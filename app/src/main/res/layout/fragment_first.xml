@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
+    android:background="@drawable/background"
     android:gravity="center"
-    android:background="@drawable/background">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageView3"
         android:layout_width="190dp"
         android:layout_height="120dp"
-        android:src="@drawable/logo"
-        app:shapeAppearanceOverlay="@style/Circular"
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="-100dp"/>
+        android:layout_marginTop="-100dp"
+        android:src="@drawable/logo"
+        app:shapeAppearanceOverlay="@style/Circular" />
 
     <EditText
         android:id="@+id/usernameEditText"
@@ -32,34 +31,43 @@
         android:id="@+id/passwordEditText"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:layout_marginTop="16dp"
         android:hint="Password"
         android:inputType="textPassword"
-        android:layout_marginTop="16dp"
         android:padding="10dp" />
 
     <Button
+        android:id="@+id/loginButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:backgroundTint="@color/black"
         android:layout_marginTop="16dp"
-        android:textColor="@color/white"
-        android:id="@+id/loginButton"/>
+        android:backgroundTint="@color/black"
+        android:text="Login"
+        android:textColor="@color/white" />
 
     <Button
+        android:id="@+id/tempSwitchBTN"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="QR-Code"
-        android:backgroundTint="@color/black"
         android:layout_marginTop="16dp"
-        android:textColor="@color/white"
-        android:id="@+id/tempSwitchBTN"/>
+        android:backgroundTint="@color/black"
+        android:text="QR-Code"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/chatRoomBTN"
         android:layout_width="176dp"
         android:layout_height="53dp"
         android:text="ChatRoom" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/supportBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="111dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="16dp"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
 
 
 </LinearLayout>

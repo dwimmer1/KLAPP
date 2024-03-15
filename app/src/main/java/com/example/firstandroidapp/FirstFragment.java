@@ -17,6 +17,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,9 +27,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -44,9 +47,12 @@ public class FirstFragment extends Fragment {
     private TextView datenAnzeige;
     ResultSet results = null;
 
+    String jsonString = "[{\"username\":\"ManuelRester\",\"email\":\"manuel@rester.test\",\"password\":\"test123\",\"user_id\":\"1\",\"profile_picture\":\"0\",\"phone_number\":\"0664 123456789\",\"date_account_created\":\"10.11.2023\",\"user_role\":\"Admin\"},{\"username\":\"DanielWimmer\",\"email\":\"daniel@wimmer.test\",\"password\":\"test123\",\"user_id\":\"2\",\"profile_picture\":\"0\",\"phone_number\":\"0664 987654321\",\"date_account_created\":\"10.11.2023\",\"user_role\":\"User\"},{\"username\":\"EliasMiklautsch\",\"email\":\"elias@miklautsch.test\",\"password\":\"elistinkt\",\"user_id\":\"3\",\"profile_picture\":\"0\",\"phone_number\":\"0664 741852963\",\"date_account_created\":\"10.11.2023\",\"user_role\":\"User\"},{\"username\":\"SemirMedzikovic\",\"email\":\"semir@medzikovic.test\",\"password\":\"test123\",\"user_id\":\"4\",\"profile_picture\":\"0\",\"phone_number\":\"0664 963852741\",\"date_account_created\":\"10.11.2023\",\"user_role\":\"User\"},{\"username\":\"admin\",\"email\":\"admin@test\",\"password\":\"admin\",\"user_id\":\"5\",\"profile_picture\":\"0\",\"phone_number\":\"525253\",\"date_account_created\":\"10.11.2023\",\"user_role\":\"Admin\"}]";
+
     List<String> userNames = new ArrayList<>();
     List<String> passwords = new ArrayList<>();
 
+    List<String> userRoles = new ArrayList<>();
 
 
     @Override
@@ -68,8 +74,13 @@ public class FirstFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-
-
+        binding.supportBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(FirstFragment.this)
+                        .navigate(R.id.action_FirstFragment_to_SupportFragment);
+            }
+        });
 
 
         binding.loginButton.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +92,15 @@ public class FirstFragment extends Fragment {
 
                 // Prüfe, ob eingegebener Benutzername und Passwort in der Liste der JSON-Daten vorhanden sind
                 if (userNames.contains(enteredUserName) && passwords.contains(enteredPassword)) {
+                    LoggendUserSingleton.getInstance().setUserNames(enteredUserName);
+
+                    try {
+                      String userRole = getUserRoleFromLoggedinUser(jsonString, enteredUserName);
+                      LoggendUserSingleton.getInstance().setUserRole(userRole);
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+
                     Log.d("LoginIdentifier", "Success");
 
                     //Saves currentLoggedInUser in Singelton
@@ -109,7 +129,6 @@ public class FirstFragment extends Fragment {
         });
 
 
-
         binding.chatRoomBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,6 +140,7 @@ public class FirstFragment extends Fragment {
 
 
     }
+
     private class DatenAbrufenTask extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... strings) {
@@ -155,13 +175,12 @@ public class FirstFragment extends Fragment {
         @Override
         protected void onPostExecute(String result) {
             if (result != null) {
-                // Hier kannst du den PHP-Code in der result-Variable verwenden
-                // Achte darauf, dass dies aus Sicherheitsgründen nicht empfohlen ist
-                // PHP-Code sollte normalerweise auf einem Server ausgeführt werden
                 Log.d("DatenAbrufenTask", "Serverantwort: " + result);
                 loggeDaten(result);
+                //   getUserRoleFromLoggedinUser(result);
             }
         }
+
         private void loggeDaten(String jsonDaten) {
             try {
                 JSONArray jsonArray = new JSONArray(jsonDaten);
@@ -169,10 +188,12 @@ public class FirstFragment extends Fragment {
                     JSONObject jsonObjekt = jsonArray.getJSONObject(i);
                     String userName = jsonObjekt.getString("username");
                     String password = jsonObjekt.getString("password");
+                    String userRole = jsonObjekt.getString("user_role");
 
                     // Speichere Benutzernamen und Passwörter in den Listen
                     userNames.add(userName);
                     passwords.add(password);
+                    userRoles.add(userRole);
                 }
 
             } catch (JSONException e) {
@@ -181,6 +202,22 @@ public class FirstFragment extends Fragment {
         }
 
 
+    }
+
+    public String getUserRoleFromLoggedinUser(String jsonDaten, String userName) throws JSONException {
+        String userRole = null;
+        JSONArray jsonArray = new JSONArray(jsonDaten);
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            String jsonUsername = jsonObject.getString("username");
+
+            if (userName.equals(jsonUsername)) {
+                userRole = jsonObject.getString("user_role");
+                break; // Beende die Schleife, wenn der Benutzer gefunden wurde
+            }
+        }
+
+        return userRole;
     }
 
     @Override
